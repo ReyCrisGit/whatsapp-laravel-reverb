@@ -26,6 +26,8 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(ContactController::class)->group(function (){
         Route::get('/contacts', 'index')->name('contacts.index');
+        Route::get('/contacts/create', 'create')->name('contacts.create');
+        Route::post('/contacts/store', 'store')->name('contacts.store');
     });
 
 });

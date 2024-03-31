@@ -2,35 +2,65 @@ import React from "react";
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { usePage } from "@inertiajs/react";
 
-export default function Index ({ auth }){
+export default function Index({ auth }) {
 
     const { contacts } = usePage().props;
 
 
-    return(
+    return (
         <AuthenticatedLayout
             user={auth.user}
-            header={<h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Contactos</h2>}
+        // header={<h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Contactos</h2>}
         >
-
-            <h1 className="dark:text-gray-200">LISTA DE CONTACTOS</h1>
-            <table>
+            <header className="bg-white dark:bg-gray-800 shadow">
+                <div className="flex justify-between max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    <h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Contactos</h2>
+                    {/* <div className="dark:text-white">+</div> */}
+                    <a href={route('contacts.create')} className="dark:text-white dark:hover:bg-gray-900 dark:active:bg-gray-950 -m-2 p-2 rounded">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
+                        </svg>
+                    </a>
+                </div>
+            </header>
+            <table class="min-w-full divide-y">
                 <thead>
-                    <tr className="dark:text-white">
-                        <th>Contactos</th>
-                        <th>Telefono</th>
+                    <tr>
+                        <th class="px-6 py-3 bg-gray-800 dark:bg-gray-900 text-left text-xs leading-4 font-medium text-gray-400 uppercase tracking-wider">Contactos</th>
+                        <th class="px-6 py-3 bg-gray-800 dark:bg-gray-900 text-left text-xs leading-4 font-medium text-gray-400 uppercase tracking-wider">Telefono</th>
+                        <th class="px-6 py-3 bg-gray-800 dark:bg-gray-900 text-left text-xs leading-4 font-medium text-gray-400 uppercase tracking-wider">Chats</th>
                     </tr>
                 </thead>
-                <tbody>
-                    { contacts.map((contact, index) => (
+                <tbody class="bg-white divide-y divide-gray-700">
+                    {contacts.map((contact, index) => (
                         <tr className="dark:text-gray-200">
-                            <td>{ contact.alias }</td>
-                            <td>{ contact.phone_code }</td>
+                            <td class="dark:bg-gray-900 px-6 py-4 whitespace-no-wrap">{contact.alias}</td>
+                            <td class="dark:bg-gray-900 px-6 py-4 whitespace-no-wrap">{contact.phone_code}</td>
+                            <td class="dark:bg-gray-900 px-6 py-4 whitespace-no-wrap">Chat</td>
                         </tr>
 
                     ))}
                 </tbody>
             </table>
+            {/* <table>
+                <thead>
+                    <tr className="dark:text-white">
+                        <th>Contactos</th>
+                        <th>Telefono</th>
+                        <th>Chats</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {contacts.map((contact, index) => (
+                        <tr className="dark:text-gray-200">
+                            <td>{contact.alias}</td>
+                            <td>{contact.phone_code}</td>
+                            <td>Chat</td>
+                        </tr>
+
+                    ))}
+                </tbody>
+            </table> */}
         </AuthenticatedLayout>
     )
 
