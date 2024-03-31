@@ -27,10 +27,10 @@ export default function Create({ auth }) {
         <AuthenticatedLayout
             user={auth.user}
         >
-            <header className="bg-white dark:bg-gray-800 shadow">
+            <header className="bg-white dark:bg-verde-bg shadow">
                 <div className="flex justify-between max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    <h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Crear Nuevo Contactos</h2>
-                    <a href={route('contacts.index')} className="dark:text-white dark:hover:bg-gray-900 dark:active:bg-gray-950 -m-2 p-2 rounded">
+                    <h2 className="font-semibold text-xl text-gray-800 dark:text-white leading-tight">Crear Nuevo Contactos</h2>
+                    <a href={route('contacts.index')} className="dark:text-white dark:hover:bg-verde-bg-web/50 dark:active:bg-verde-bg-web -m-2 p-2 rounded">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
                         </svg>
@@ -39,10 +39,10 @@ export default function Create({ auth }) {
                 </div>
             </header>
 
-            <div>
+            <div class="flex justify-center mt-10">
                 <form onSubmit={ createContact }>
                     <div>
-                        <InputLabel value="Alias"></InputLabel>
+                        <InputLabel value="Nombre"></InputLabel>
                         <TextInput 
                             id="alias" 
                             name="alias" 
@@ -63,7 +63,7 @@ export default function Create({ auth }) {
                         >
                         </TextInput>
                     </div>
-                    <div>
+                    <div class="flex justify-center mt-4">
                         <PrimaryButton>Guardar</PrimaryButton>
                     </div>
                 </form>
