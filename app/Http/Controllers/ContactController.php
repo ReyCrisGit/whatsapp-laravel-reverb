@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class ContactController extends Controller
@@ -22,7 +24,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Contacts/Create');
     }
 
     /**
@@ -30,7 +32,14 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $contact = new Contact();
+        $contact->alias = $request->alias;
+        $contact->phone_code = $request->phone_code;
+        $contact->user_id = auth()->user()->id;
+        $contact->save();
+
+        return Redirect::route('contacts.index');
+
     }
 
     /**
