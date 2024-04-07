@@ -27,10 +27,10 @@ export default function Create({ auth }) {
         <AuthenticatedLayout
             user={auth.user}
         >
-            <header className="bg-white dark:bg-verde-bg shadow">
+            <header className="bg-white dark:bg-forest-green shadow">
                 <div className="flex justify-between max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     <h2 className="font-semibold text-xl text-gray-800 dark:text-white leading-tight">Crear Nuevo Contactos</h2>
-                    <a href={route('contacts.index')} className="dark:text-white dark:hover:bg-verde-bg-web/50 dark:active:bg-verde-bg-web -m-2 p-2 rounded">
+                    <a href={route('contacts.index')} className="dark:text-white dark:hover:bg-apple-green/50 dark:active:bg-apple-green -m-2 p-2 rounded">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
                         </svg>

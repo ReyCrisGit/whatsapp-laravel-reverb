@@ -10,7 +10,7 @@ export default function Authenticated({ user, header, children }) {
 
     return (
         <div className="min-h-screen bg-white text-white">
-            <nav className="bg-verde-bg border-b text-[#000000]">
+            <nav className="bg-forest-green border-b text-[#000000]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
                         <div className="flex">
@@ -40,7 +40,7 @@ export default function Authenticated({ user, header, children }) {
                                         <span className="inline-flex rounded-md">
                                             <button
                                                 type="button"
-                                                className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-text bg-gray-bg hover:text-gray-hover focus:outline-none transition ease-in-out duration-150"
+                                                className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-slate-gray bg-light-gray  hover:text-steel-gray focus:outline-none transition ease-in-out duration-150"
                                             >
                                                 {user.name}
 

@@ -16,13 +16,13 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                'verde-bg': '#008069',
-                'verde-bg-web': '#25d366',
-                'gray-bg': '#fcfefd',
-                'gray-bg2': '#dfe5e7',
-                'gray-hover': '#8696a0',
-                'gray-text': '#667781',
-            }
+                'forest-green': '#008069',
+                'apple-green': '#25d366',
+                'light-gray': '#fcfefd',
+                'pearl-gray': '#dfe5e7',
+                'steel-gray': '#8696a0',
+                'slate-gray': '#667781',
+            },
         },
     },
 
