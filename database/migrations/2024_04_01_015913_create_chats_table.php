@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('chats', function (Blueprint $table) {
             $table->id();
+            $table->string('code')->nullable();
             $table->string('message', 250);
             
             $table->unsignedBigInteger('trasmitter_user_id');

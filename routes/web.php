@@ -5,6 +5,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ChatController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -28,6 +29,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/contacts', 'index')->name('contacts.index');
         Route::get('/contacts/create', 'create')->name('contacts.create');
         Route::post('/contacts/store', 'store')->name('contacts.store');
+    });
+
+    Route::controller(ChatController::class)->group(function (){
+        Route::get('/contacts/{contactId}/chats', 'index')->name('chats.index');
+        // Route::get('/contacts/create', 'create')->name('contacts.create');
+        // Route::post('/contacts/store', 'store')->name('contacts.store');
     });
 
 });
