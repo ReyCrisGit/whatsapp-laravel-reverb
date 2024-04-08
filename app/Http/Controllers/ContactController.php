@@ -15,7 +15,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::all();
+        $contacts = Contact::where('user_id', '=', auth()->user()->id)->get();
         return Inertia::render('Contacts/Index', ['contacts' => $contacts]);
     }
 

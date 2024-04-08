@@ -15,8 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('message', 250);
             
-            $table->unsignedBigInteger('contact_id');
-            $table->foreign('contact_id')->references('id')->on('contacts')->onDelete('cascade');
+            $table->unsignedBigInteger('trasmitter_user_id');
+            $table->foreign('trasmitter_user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->unsignedBigInteger('receiver_user_id');
+            $table->foreign('receiver_user_id')->references('id')->on('users')->onDelete('cascade');
+
+
             $table->timestamps();
         });
     }

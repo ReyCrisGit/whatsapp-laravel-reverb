@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string('alias', 50);
             $table->string('phone_code', 15);
 
+            $table->unsignedBigInteger('owner_user_id')->nullable();
+            $table->foreign('owner_user_id')->references('id')->on('users')->onDelete('set null');
+
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
