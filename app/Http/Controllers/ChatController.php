@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Chat;
 use App\Models\Contact;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-class ContactController extends Controller
+class ChatController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($receiver_user_id, )
     {
-        $contacts = Contact::where('user_id', '=', auth()->user()->id)->get();
-        return Inertia::render('Contacts/Index', ['contacts' => $contacts]);
+        $contact = Contact::find($receiver_user_id);
+        // $chats = Chat::where('trasmitter_user_id', 1)->where('receiver_user_id', 2)->get();
+        $chats = Chat::where('code', '=', 's-1')->whereIn('receiver_user_id', [$contact->owner_user_id, auth()->user()->id] )->get();
+        return Inertia::render('Contacts/Chats/Index', ['chats' => $chats, 'contact' => $contact]);
     }
 
     /**
@@ -24,7 +25,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Contacts/Create');
+        //
     }
 
     /**
@@ -32,14 +33,7 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $contact = new Contact();
-        $contact->alias = $request->alias;
-        $contact->phone_code = $request->phone_code;
-        $contact->user_id = auth()->user()->id;
-        $contact->save();
-
-        return Redirect::route('contacts.index');
-
+        //
     }
 
     /**
